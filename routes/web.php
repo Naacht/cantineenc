@@ -1,7 +1,9 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\PaiementController;
+use App\Http\Controllers\InformationController;
+use App\Http\Controllers\ReservationController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -38,4 +40,24 @@ Route::middleware([
     Route::get('/reservation', function() {
         return view('pages/reservation');
     }) ->name('reservation') ;
+
+    Route::get('/paiement', function() {
+        return view('pages/paiement');
+    }) ->name('paiement') ;
+
+    Route::get('/informations', function() {
+        return view('pages/informations');
+    }) ->name('informations') ;
+
+    Route::get('/informations', 'InformationController@show')->name('informations');
+
+    Route::get('/informations', [InformationController::class, 'show'])->name('informations');
+
+
+    Route::post('/process-payment', [PaiementController::class, 'processPayment'])->name('process_payment');
+
+    Route::post('/reservation', [ReservationController::class, 'store'])->name('reservation');
+    Route::get('/annuler/{id}', [ReservationController::class, 'annuler'])->name('annuler');
+
+
 });

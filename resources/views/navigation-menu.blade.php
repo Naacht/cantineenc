@@ -21,12 +21,12 @@
 
                     </x-nav-link>
 
-                    <x-nav-link href="{{ route('reservation') }}" :active="request()->routeIs('reservation')">
+                    <x-nav-link href="{{ route('informations') }}" :active="request()->routeIs('informations')">
                         {{ __('Informations') }}
 
                     </x-nav-link>
 
-                    <x-nav-link href="{{ route('reservation') }}" :active="request()->routeIs('reservation')">
+                    <x-nav-link href="{{ route('paiement') }}" :active="request()->routeIs('paiement')">
                         {{ __('Paiement') }}
 
                     </x-nav-link>

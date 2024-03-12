@@ -3,17 +3,53 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Reservation;
+use App\Models\User;
+use Illuminate\Support\Facades\Auth;
 
 class ReservationController extends Controller
 {
     public function store(Request $request)
     {
-        // Logique de réservation ici...
-        $date = $request->input('date');
+        // Vérifier si l'utilisateur est authentifié
+        if (Auth::check()) {
+            $userId = Auth::id();
+            $user = User::findOrFail($userId);
 
-        // Vous pouvez enregistrer la réservation en base de données ou effectuer d'autres actions nécessaires.
+            // Vérifier si l'utilisateur a suffisamment de fonds pour la réservation
+            if ($user->solde_restauration >= 3) {
+                // Débiter l'utilisateur de 3 euros
+                $user->solde_restauration -= 3;
+                $user->save();
 
-        // Pour l'instant, nous allons simplement retourner une vue avec la date réservée.
-        return view('reservation.success', compact('date'));
+                // Enregistrer la réservation en base de données
+                $reservation = new Reservation();
+                $reservation->user_id = $userId;
+                $reservation->date_reservation = $request->input('date');
+                $reservation->save();
+
+                return redirect()->route('informations')->with('success', 'Réservation effectuée avec succès.');
+            } else {
+                return redirect()->route('informations')->with('error', 'Vous n\'avez pas les fonds nécessaires pour effectuer une réservation.');
+            }
+        } else {
+            return redirect()->route('login')->with('error', 'Veuillez vous connecter pour effectuer une réservation.');
+        }
+    }
+
+        public function annuler($id)
+    {
+        $reservation = Reservation::findOrFail($id);
+        $userId = $reservation->user_id;
+        $user = User::findOrFail($userId);
+
+        // Rembourser l'utilisateur de 3 euros
+        $user->solde_restauration += 3;
+        $user->save();
+
+        // Annuler la réservation
+        $reservation->delete();
+
+        return redirect()->route('informations')->with('success', 'Réservation annulée avec succès.');
     }
 }
