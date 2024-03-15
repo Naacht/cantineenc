@@ -43,7 +43,6 @@ class PaiementController extends Controller
             // Mettez à jour le solde de restauration de l'utilisateur
             $user = User::find($userId);
             $user->solde_restauration += $request->montant;
-            $user->solde_restauration -= 3;
             $user->save();
 
             // Redirigez l'utilisateur vers une page de confirmation ou une autre page après le paiement

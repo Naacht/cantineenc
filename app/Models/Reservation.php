@@ -9,7 +9,7 @@ class Reservation extends Model
 {
     use HasFactory;
 
-    protected $table = 'reservations'; // Assurez-vous que le nom de la table est correct
+    protected $table = 'reservations';
     protected $fillable = [
         'user_id',
         'date_reservation'
