@@ -5,7 +5,7 @@
             <div class="flex">
                 <div class="shrink-0 flex items-center">
                     <a href="{{ route('dashboard') }}">
-                        <img width="50" height="50" src="http://gestiondecantine.test/image/logo-enc.jpg">
+                        <img width="50" height="50" src="{{asset("/image/logo-enc.jpg")}}"/>
                     </a>
                 </div>
 
