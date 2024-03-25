@@ -1,7 +1,7 @@
 <x-guest-layout>
     <x-authentication-card>
         <x-slot name="logo">
-            <img width="75" height="50" src="http://gestiondecantine.test/image/logo-enc.jpg">
+            <img width="75" height="50" src="{{asset("/image/logo-enc.jpg")}}"/>
         </x-slot>
 
         <x-validation-errors class="mb-4" />
