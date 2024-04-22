@@ -50,7 +50,6 @@ Route::middleware([
     }) ->name('informations') ;
 
     Route::get('/informations', 'InformationController@show')->name('informations');
-
     Route::get('/informations', [InformationController::class, 'show'])->name('informations');
 
 

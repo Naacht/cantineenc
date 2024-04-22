@@ -42,6 +42,8 @@
 
         </style>
 
+
+
         <form method="post" action="{{ route('reservation') }}">
             @csrf
             <script>
@@ -49,9 +51,9 @@
                     // Récupérer l'élément d'entrée de la date
                     var dateInput = document.getElementById('date');
 
-                    // Définir la date minimum (aujourd'hui)
+                    // Définir la date minimum
                     var today = new Date();
-                    var minDate = today.toISOString().split('T')[0]; // Format AAAA-MM-JJ
+                    var minDate = today.toISOString().split('T')[0];
 
                     // Définir la date minimum dans l'élément d'entrée de la date
                     dateInput.setAttribute('min', minDate);
@@ -73,6 +75,7 @@
                         successMessage.style.display = 'block';
                     });
                 });
+
             </script>
 
     <body class="bg-gray-100">
@@ -91,6 +94,11 @@
             </div>
             </div>
             <div id="success-message" class="success-message" style="display: none;"></div>
+            @if(session('error'))
+                <div class="alert alert-danger">
+                    {{ session('error') }}
+                </div>
+            @endif
         </div>
     </div>
     </body>

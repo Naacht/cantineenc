@@ -78,13 +78,32 @@
         <input type="double" id="montant" name="montant" required>
 
         <label for="numero_carte">Numéro de carte de crédit</label>
-        <input type="text" id="numero_carte" name="numero_carte" required>
+        <input type="text" id="numero_carte" name="numero_carte" maxlength="16" required>
 
         <label for="date_expiration">Date d'expiration</label>
-        <input type="text" id="date_expiration" name="date_expiration" placeholder="MM/AA" required>
+        <input type="text" id="date_expiration" name="date_expiration" pattern="(0[1-9]|1[0-2])\/[0-9]{2}" placeholder="MM/AA" required>
 
         <label for="code_securite">Code de sécurité</label>
-        <input type="text" id="code_securite" name="code_securite" required>
+        <input type="text" id="code_securite" name="code_securite" maxlength="3" required>
+
+         <script>
+
+    document.addEventListener('DOMContentLoaded', function () {
+        var expirationInput = document.getElementById('date_expiration');
+
+        expirationInput.addEventListener('blur', function () {
+            var inputValue = expirationInput.value;
+            if (inputValue) {
+                var pattern = /^(0[1-9]|1[0-2])\/[0-9]{2}$/;
+                if (!pattern.test(inputValue)) {
+                    alert('Veuillez entrer une date d\'expiration au format MM/AA.');
+                    expirationInput.value = '';
+                    expirationInput.focus();
+                }
+            }
+        });
+    });
+</script>
 
         <button type="submit">Valider</button>
             </form>

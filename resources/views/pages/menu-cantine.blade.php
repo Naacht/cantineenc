@@ -36,15 +36,15 @@
         }
 
         table {
-            width: 80%; /* Définissez la largeur totale du tableau sur 100% */
+            width: 80%;
             margin: 0 auto ;
-            border-collapse: collapse; /* Fusionnez les bordures des cellules */
+            border-collapse: collapse;
         }
 
         th, td {
-            padding: 8px; /* Ajoutez un espace intérieur aux cellules */
-            border: 1px solid #e5e7eb; /* Ajoutez une bordure autour des cellules */
-            text-align: center; /* Centrez le texte dans les cellules */
+            padding: 8px;
+            border: 1px solid #e5e7eb;
+            text-align: center;
         }
 
     </style>
@@ -98,7 +98,7 @@
                     <td>
                         <h4 style="font-weight: bold;"> Plat </h4>
                         <br>
-                        Sauté de boeuf saice poivrade
+                        Sauté de boeuf sauce poivrade
                     </td>
 
                     <td>
@@ -110,7 +110,7 @@
                     <td>
                         <h4 style="font-weight: bold;"> Plat </h4>
                         <br>
-                        Sauté de boeuf saice poivrade
+                        Sauté de boeuf sauce poivrade
                     </td>
 
                     <td>
@@ -122,7 +122,7 @@
                     <td>
                         <h4 style="font-weight: bold;"> Plat </h4>
                         <br>
-                        Sauté de boeuf saice poivrade
+                        Sauté de boeuf sauce poivrade
                     </td>
                 </tr>
 
