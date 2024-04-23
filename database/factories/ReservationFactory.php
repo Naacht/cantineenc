@@ -16,7 +16,7 @@ class ReservationFactory extends Factory
             'user_id' => function () {
                 return \App\Models\User::factory()->create()->id;
             },
-            'date_reservation' => $this->faker->date(), // par exemple, utiliser le faker pour générer une date aléatoire
+            'date_reservation' => $this->faker->date(),
         ];
     }
 }
