@@ -4,6 +4,8 @@ namespace Database\Factories;
 
 use App\Models\Paiement;
 use Illuminate\Database\Eloquent\Factories\Factory;
+use Illuminate\Support\Str;
+
 
 class PaiementFactory extends Factory
     {
@@ -13,9 +15,9 @@ class PaiementFactory extends Factory
     {
         return [
         'user_id' => function () {
-        return \App\Models\User::factory()->create()->id;
+            return \App\Models\User::factory()->create()->id;
         },
-            'nom' => $this->faker->lastName,
+        'nom' => $this->faker->lastName,
         'prenom' => $this->faker->firstName,
         'montant' => $this->faker->numberBetween(10, 100),
         'numero_carte' => $this->faker->creditCardNumber,

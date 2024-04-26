@@ -17,7 +17,7 @@ class Paiement extends Model
         'numero_carte',
         'date_expiration',
         'code_securite',
-        'user_id', // Ajout du champ user_id à la liste des attributs remplissables
+        'user_id',
     ];
 
     /**
